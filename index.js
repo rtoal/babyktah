@@ -109,7 +109,7 @@ function updateHealthBar() {
 function checkForGameOver() {
   if (player.health <= 0) {
     textAlign(CENTER);
-    textFont("chalkduster");
+    textFont("Creepster, chalkduster, sans-serif");
     textSize(60);
     fill("red");
     text('GAME OVER', width / 2, height / 2);
