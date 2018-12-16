@@ -2,3 +2,7 @@ h1 {
   font-family: Avenir, Roboto, Helvetica, sans-serif;
   font-weight: bold;
 }
+
+progress {
+  width: 600px;
+}
