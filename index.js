@@ -48,7 +48,9 @@ function draw() {
   enemies.forEach(enemy => enemy.move(scarecrow || player));
   processScarecrow();
   handleCollisions();
+  addEnemies();
   updateHealthBar();
+  checkForGameOver();
 }
 
 function processScarecrow() {
@@ -87,6 +89,12 @@ function pushOffIfNecessary(c1, c2) {
   }
 }
 
+function addEnemies() {
+  if (frameCount % 600 === 0) {
+    enemies.push(new Character(800, 400, "rgb(70,125,29)", 17, 0.02));
+  }
+}
+
 function mouseClicked() {
   if (!scarecrow) {
     scarecrow = new Character(player.x, player.y, "white", 10, 0);
@@ -96,6 +104,9 @@ function mouseClicked() {
 
 function updateHealthBar() {
   document.querySelector("progress").value = player.health;
+}
+
+function checkForGameOver() {
   if (player.health <= 0) {
     textAlign(CENTER);
     textFont("chalkduster");
